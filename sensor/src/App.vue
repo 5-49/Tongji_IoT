@@ -215,6 +215,8 @@
       //根据已选节点构建无向图
       //该函数需要返回一个费用矩阵
       graphInit(){
+        this.chosen_sensor=[]
+
         for(var i=0; i<this.chosen_A.length; i++){
           this.chosen_sensor.push(this.chosen_A[i])
         }
@@ -370,6 +372,11 @@
       },
       //主程序
       run(){
+        this.count=1
+        this.path=[]
+        this.opt_dis=999999
+        this.opt_time=999999
+
         if(this.interval==''|this.speed=='') {
           this.$alert('请输入距离和速度后再点击模拟按钮！', 
           '错误提示', {
@@ -400,6 +407,10 @@
         console.log('时间矩阵是：')
         console.log(this.time_graph)
 
+        this.dis_visited=[]
+        this.path=[]
+        this.opt_dis_path=[]
+
         for(var i=0; i<this.chosen_sensor.length; i++){
           this.dis_visited.push(0)
           this.path.push(-1)
@@ -421,6 +432,8 @@
 
         this.count=1
         this.path=[]
+        this.time_visited=[]
+        this.opt_time_path=[]
 
         for(var i=0; i<this.chosen_sensor.length; i++){
           this.time_visited.push(0)
@@ -440,8 +453,8 @@
         for(i=0;i<this.opt_time_path.length;i++){
           this.opt_time_path[i]=this.chosen_sensor[this.opt_time_path[i]]
         }
-        var sizeof = require('object-sizeof')
-        console.log(sizeof(this.opt_time_path))
+        // var sizeof = require('object-sizeof')
+        // console.log(sizeof(this.opt_time_path))
 
       },
       clear(){
