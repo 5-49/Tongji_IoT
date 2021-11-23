@@ -1,12 +1,16 @@
 编程语言：JavaScript，CSS，HTML 
 开发框架：node.js，Vue 
-编译调试环境：Google Chrome，VSCode 2017
+编译调试环境：Google Chrome，VSCode
 
 # 最终界面
 
 ![image-20211116212901908](README.assets/image-20211116212901908.png)
 
 
+
+查找每个顶点的邻接点所需时间为O(n)，要查找整个矩阵，故总的时间度为O(n^2)。 
+
+具体说明见pdf文档
 
 # 项目要求
 
@@ -54,6 +58,5 @@
 - 每个传感器之间的距离
 
 - 水平/竖直方向上信号传播的速度
-
 
 

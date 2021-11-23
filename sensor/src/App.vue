@@ -1,4 +1,5 @@
 <template>
+
 <div >
     <div class="bg">
     </div>
@@ -96,7 +97,7 @@
       </dv-border-box-4>
       <dv-border-box-4 title="时间最短" style="height:220px;" :reverse="true" :color="['#3fb1e3', '#96dee8']">
         <el-container>
-        <h1 class="algo_text">请选择图中任意传感器节点，并在右上角输入相关信息，点击模拟。<br>本模拟采用图遍历的DFS算法并结合剪枝技术，输出最优路径。</h1>
+        <h1 class="algo_text">请选择图中三个或以上传感器，并在右上角输入相关信息，点击模拟。再次模拟需先点击清空。<br>采用DFS算法并结合剪枝技术，输出最优路径。</h1>
         <dv-decoration-9 :color="['#3fb1e3', '#96dee8']" class="" style="width:150px;height:150px;font-size:25px">O(n²)</dv-decoration-9>
         </el-container>
       </dv-border-box-4>
@@ -105,7 +106,9 @@
 <div align="center" class="foot_text" style="margin-top:15px"> 
     @同济大学软件学院IoT期中作业 1854025杨晶
   </div>
+
 </div>
+
 </template>
 
 <script>
@@ -372,6 +375,14 @@
       },
       //主程序
       run(){
+        if(this.opt_time!=999999) {
+          this.$alert('再次模拟需要先点击清空按钮！', 
+          '错误提示', {
+            confirmButtonText: '确定',
+          });
+          return
+        }
+
         this.count=1
         this.path=[]
         this.opt_dis=999999
@@ -474,11 +485,10 @@
         
         setTimeout(function () {
           location.reload();
-        },1500);
+        },2000);
         
       },
       reload(){
-        <dv-loading>Loading...</dv-loading>
           location.reload();
       }
     },
@@ -489,9 +499,6 @@
 </script>
 
 <style>
-.dv-loading{
-  z-index: 99999;
-}
 .bg {
     width: 100%;
     height: 100%;
@@ -597,5 +604,16 @@
 }
 .foot_text{
   color: #c656fa;
+}
+.footer{
+    color: #96dee8;
+    font-size: 15px;
+    text-indent: 2em; 
+    margin:5px;
+    text-align: center;
+    margin-top: 20px;
+}
+.text{
+    color: #c0dde0;
 }
 </style>
